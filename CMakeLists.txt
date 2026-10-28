@@ -15,12 +15,12 @@ FetchContent_Declare(
         GIT_REPOSITORY https://github.com/ocornut/imgui.git
         GIT_TAG        v1.93.0
 )
-FetchContent_MakeAvailable(imgui)
+FetchContent_MakeAvailable(aimgui)
 
 # -------------------------
 
 # Dear ImGui 用のライブラリターゲットを作成 (コア + Win32 + DirectX 11 バックエンド)
-add_library(imgui STATIC
+add_library(aimgui STATIC
         ${imgui_SOURCE_DIR}/imgui.cpp
         ${imgui_SOURCE_DIR}/imgui_demo.cpp
         ${imgui_SOURCE_DIR}/imgui_draw.cpp
@@ -31,7 +31,7 @@ add_library(imgui STATIC
 )
 
 # インクルードパスの設定 (本体とバインド用の両方を通す)
-target_include_directories(imgui PUBLIC
+target_include_directories(aimgui PUBLIC
         ${imgui_SOURCE_DIR}
         ${imgui_SOURCE_DIR}/backends
 )
@@ -41,6 +41,8 @@ add_library(ImGuiFileDialog
     ImGuiFileDialog.h
     ImGuiFileDialogConfig.h
 )
+
+target_link_libraries(ImGuiFileDialog PUBLIC imgui)
 
 # Use generator expressions for proper include directory handling
 target_include_directories(ImGuiFileDialog

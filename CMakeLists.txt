@@ -11,7 +11,7 @@ endif()
 option(IGFD_INSTALL "Install ImGuiFileDialog library and headers" ${IGFD_INSTALL_DEFAULT})
 # --- stb の取得 ---
 FetchContent_Declare(
-        imgui
+        aimgui
         GIT_REPOSITORY https://github.com/ocornut/imgui.git
         GIT_TAG        v1.93.0
 )

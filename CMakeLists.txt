@@ -18,13 +18,6 @@ add_library(ImGuiFileDialog
     ImGuiFileDialogConfig.h
 )
 
-if(imgui_FOUND)
-    target_link_libraries(ImGuiFileDialog PUBLIC imgui::imgui)
-    message(STATUS "ImGuiFileDialog: Found imgui package, linking automatically")
-else()
-    message(STATUS "ImGuiFileDialog: imgui package not found - ensure ImGui is available in your project")
-endif()
-
 # Use generator expressions for proper include directory handling
 target_include_directories(ImGuiFileDialog
     PUBLIC
